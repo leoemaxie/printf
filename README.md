@@ -1,4 +1,4 @@
-# Printf 
+# Prihtf
 
 ## Overview
 The C printf function. This program works in a similar way to C printf standard library function contained in `stdio.h`. It handles the following formats:
