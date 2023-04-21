@@ -10,4 +10,4 @@ The C printf function. This program works in a similar way to C printf standard 
 
 ## Authors
 * [https://github.com/leoemaxie](Leo Emaxie)
-* [https://github.com/Toluwaniojiks](Toluwani Ojikutu)
+* [Toluwani Ojikutu](https://github.com/Toluwaniojiks)
