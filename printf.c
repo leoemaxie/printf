@@ -11,22 +11,24 @@
 int _printf(const char *fmt, ...)
 {
 	int i;
-	va_list c;
+	va_list ap;
+	fmt_t formatters[] = {
+		{print_digit, 'd'}, {print_hex, 'x'}
+	};
+	int size = sizeof(formatters) / sizeof(formatters[0]);
 
-	va_start(c, fmt);
+	va_start(ap, fmt);
 	for (i = 0; fmt[i] != '\0'; i++)
 	{
-		if (check_percent(c))
+		if (check_percent(fmt[i]))
 		{
-			if (fmt[i + 1] == 'd')
-				print_digits(va_arg(c, int));
-
-			if (fmt [i + 1] == 'x')
-				print_hex(va_arg(c, int));
-			i = i + 2;
+			int index = skip_chars(fmt, &i, size, formatters);
+			print_format(index, &ap, formatters);
 		}
 		_putchar(fmt[i]);
 	}
-	va_end(c);
+	va_end(ap);
+
+	return (0);
 }
 

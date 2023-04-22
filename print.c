@@ -18,10 +18,10 @@ void print_digit(va_list *ap)
 		_putchar(45);
 		n = -n;
 	}
-	if (n / 10)
-		print_digits(n / 10);
-
-	_putchar(n % 10 + 48);
+	while (n / 10)
+	{
+		_putchar(n % 10 + 48);
+	}	
 }
 
 /**
@@ -39,10 +39,11 @@ void print_hex(va_list *ap)
 
 	if (n < 0)
 		n = -n;
-	if (n / 16)
-		print_hex(n / 16);
-	if (n % 16 < 10)
-		_putchar(n % 16 + 48);
-	else
-		_putchar(n % 16 + 87);
+	while (n / 16)
+	{
+		if (n % 16 < 10)
+			_putchar(n % 16 + 48);
+		else
+			_putchar(n % 16 + 87);
+	}
 }
