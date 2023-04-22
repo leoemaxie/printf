@@ -1,10 +1,10 @@
 #include <unistd.h>
-#include "io.h"
+#include "main.h"
 
 /**
  * _putchar - Prints a character to stdout.
  *
- * @s: The character.
+ * @c: The character.
  *
  * Return: Nothing.
  */
