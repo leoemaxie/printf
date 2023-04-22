@@ -10,24 +10,28 @@
 
 int _printf(const char *fmt, ...)
 {
-	int i;
+	int i = 0;
 	va_list ap;
 	fmt_t formatters[] = {
-		{print_digit, 'd'}, {print_hex, 'x'}
+		{print_char, 'c'}, {print_digit, 'd'}, {print_hex, 'x'}, {print_str, 's'}
 	};
 	int size = sizeof(formatters) / sizeof(formatters[0]);
 
 	va_start(ap, fmt);
-	for (i = 0; fmt[i] != '\0'; i++)
+	while (fmt[i] != '\0')
 	{
 		if (check_percent(fmt[i]))
 		{
 			int index = skip_chars(fmt, &i, size, formatters);
+
 			print_format(index, &ap, formatters);
 		}
-		_putchar(fmt[i]);
+		else
+			_putchar(fmt[i]);
+		i++;
 	}
 	va_end(ap);
+	_putchar('\n');
 
 	return (0);
 }

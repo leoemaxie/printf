@@ -13,8 +13,12 @@ int main(void)
     int len2;
     unsigned int ui;
     void *addr;
+    _printf("%s!, Job%c %s %s, I am %d years old.", "Hello", 'K', "how are you!", "I am fine", 88);
+    _printf("Let's check widths. %0702454372s should work fine while %kd doesn't work.", "Formats with widths", "Doesn't work");
+    _printf("How about no formats");
+    _printf("%d to hexadecimal is %x while %d in hexadecimal is %x", 2000, 2000, 45, 45);
 
-    _printf("%d, hello", 1222);
+   // _printf("%d", 123);
     /**len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;

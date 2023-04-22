@@ -14,31 +14,3 @@ int check_percent(char c)
 	return (0);
 }
 
-/**
- * check_specifier - Checks whether a given specifier is valid.
- *
- * @c: The specifier.
- * 
- *
- * Return: -1 if the specifier is invalid, else, return index of the specifier.
- */
-/*
-int check_specifier(char c, fmt_t *f)
-{
-	int i;
-
-	for (i = 0; i < 5; i++)
-	{
-		if (formatters[i]->specifier == c)
-		{
-			has_specifier = 1;
-			break;
-		}
-	}
-
-	if (has_specifier)
-		return (i);
-
-	return (-1);
-}
-*/
