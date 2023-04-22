@@ -19,6 +19,7 @@ The C printf function. This program works in a similar way to C printf standard 
 * %%: a literal percent sign
 
 Additionally, it handles its own custom formats:
+* %b: binary.
 * %r: reverse of a string
 * %R: encrypts using ROT-13
 * %S: string in uppercase and hexadecimal
