@@ -18,15 +18,14 @@ int *create_digit_array(int n, int base)
 		return (NULL);
 
 	p[0] = no_of_elements;
-	while (n / base)
+	while (n)
 	{
 		/* 48 is added because numbers in ASCI starts from 48 */
 		p[no_of_elements + 1] = n % base + 48;
-		n /= base;
 		no_of_elements++;
+		n /= base;
 	}
 	p[0] = no_of_elements;
-
 	return (p);
 }
 
@@ -40,8 +39,6 @@ int *create_digit_array(int n, int base)
 void print_digit(va_list *ap)
 {
 	int i;
-	va_list ap_cpy;
-	va_copy(*ap, ap_cpy)
 	int n = va_arg(*ap, int);
 	int *array;
 
@@ -53,7 +50,7 @@ void print_digit(va_list *ap)
 
 	array = create_digit_array(n, 10);
 	if (array != NULL)
-		for (i = array[0]; i > 1; i--)
+		for (i = array[0]; i > 0; i--)
 			_putchar(array[i]);
 
 	free(array);
@@ -68,6 +65,7 @@ void print_digit(va_list *ap)
  */
 void print_hex(va_list *ap)
 {
+	int i;
 	int n = va_arg(*ap, int);
 	int *array;
 
@@ -77,12 +75,12 @@ void print_hex(va_list *ap)
 	array = create_digit_array(n, 16);
 	if (array != NULL)
 	{
-		for (i = array[0]; i > 1; i--)
+		for (i = array[0]; i > 0; i--)
 		{
-			if (array[i] > 58)
+			if (array[i] < 57)
 				_putchar(array[i]);
 			else
-				_putchar(array[i] + 29) /* digits a - f */
+				_putchar(array[i] + 39); /* digits a - f */
 		}
 	}
 

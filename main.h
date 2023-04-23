@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <stdio.h>
 /**
  * struct format_t - Format structure.
  *
