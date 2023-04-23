@@ -1,77 +1,52 @@
-#include "main.h"
 #include "test.h"
 
 /**
- * reverse_digit - reverses a digit.
+ * test_create_digit_array - Tests the create_digit_array function.
  *
- * @n: The digit to reverse.
- *
- * Return: The reversed digit.
+ * Return: Nothing.
  */
-int *test_create_digit_array(int n, int divisor)
+void *test_create_digit_array(void)
 {
 	int i, j;
-	int *p = create_digit_array(n, divisor);
+	int *p = create_digit_array(8000, 10);
 
 	if (p == NULL)
 		return (NULL);
 
 	i = p[0];
+	printf("Size of the array is: %lu", sizeof(p));
 	printf("No of elements: %d", i);
+
 		for (j = 1; j < i; j++)
 			_putchar(array[i]);
 	free(p);
 }
 
 /**
- * print_digit - prints a number in base 10.
+ * test_print_digit - Tests the print_digit function.
  *
- * @ap: The digit to print.
+ * @ap: The digit to test print.
  *
  * Return: Nothing.
  */
 
-int test_print_digit(int n)
+void test_print_digit(va_list *ap)
 {
-	int i;
-	int *array;
-
-	if (n < 0)
-	{
-		_putchar(45);
-		n = -n;
-	}
-
-	array = create_digit_array(n, 10);
-	if (array != NULL)
-		for (i = 1; i < array[0]; i++)
-			_putchar(array[i]);
-	free(array);
+	va_list *ap_cpy;
+	va_copy(*ap_cpy, *ap);
+	print_digit(ap_cpy);
 }
 
 /**
- * print_hex - prints a number as an hexadecimal.
+ * test_print_hex - Tests the print_hex function.
  *
- * @ap: The digit to print.
+ * @ap: The digit to test print.
  *
  * Return: Nothing.
  */
 void test_print_hex(int n)
 {
-	int n = va_arg(*ap, int);
-	int digit;
-
-	if (n < 0)
-		n = -n;
-	/*
-	   digit = reverse_digit(n);
-	   while (digit / 16)
-	   {
-	   if (digit % 16 < 10)
-	   _putchar(digit % 16 + 48);
-	   else
-	   _putchar(digit % 16 + 87);
-	   digit /= 16;
-	   }*/
+	va_list *ap_cpy;
+	va_copy(*ap_cpy, *ap);
+	print_hex(ap_cpy);
 }
-

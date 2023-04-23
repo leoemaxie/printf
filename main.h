@@ -22,9 +22,8 @@ typedef struct format_t
 
 
 /* Declarations */
-int *create_digit_array(int n, int divisor);
 int check_percent(char c);
-void _putchar(char c);
+int *create_digit_array(int n, int base);
 void print_char(va_list *ap);
 void print_digit(va_list *ap);
 void print_hex(va_list *ap);

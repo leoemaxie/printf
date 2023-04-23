@@ -1,13 +1,15 @@
 #include "main.h"
 
 /**
- * reverse_digit - reverses a digit.
+ * create_digit_array - Creates an array of digits that constitute a given
+ * number.
  *
- * @n: The digit to reverse.
+ * @n: The number to break to its digits.
+ * @base: The base of the number.
  *
- * Return: The reversed digit.
+ * Return: A pointer to the array of digits
  */
-int *create_digit_array(int n, int divisor)
+int *create_digit_array(int n, int base)
 {
 	int *p = malloc(sizeof(int *));
 	int no_of_elements = 0;
@@ -16,11 +18,11 @@ int *create_digit_array(int n, int divisor)
 		return (NULL);
 
 	p[0] = no_of_elements;
-	while (n / divisor)
+	while (n / base)
 	{
 		/* 48 is added because numbers in ASCI starts from 48 */
-		p[no_of_elements + 1] = n % divisor + 48;
-		n /= divisor;
+		p[no_of_elements + 1] = n % base + 48;
+		n /= base;
 		no_of_elements++;
 	}
 	p[0] = no_of_elements;
@@ -38,6 +40,8 @@ int *create_digit_array(int n, int divisor)
 void print_digit(va_list *ap)
 {
 	int i;
+	va_list ap_cpy;
+	va_copy(*ap, ap_cpy)
 	int n = va_arg(*ap, int);
 	int *array;
 
@@ -56,7 +60,7 @@ void print_digit(va_list *ap)
 }
 
 /**
- * print_hex - prints a number as an hexadecimal.
+ * print_hex - prints a number as an hexadecimal (base 16).
  *
  * @ap: The digit to print.
  *
@@ -65,19 +69,23 @@ void print_digit(va_list *ap)
 void print_hex(va_list *ap)
 {
 	int n = va_arg(*ap, int);
-	int digit;
+	int *array;
 
 	if (n < 0)
 		n = -n;
-	/*
-	   digit = reverse_digit(n);
-	   while (digit / 16)
-	   {
-	   if (digit % 16 < 10)
-	   _putchar(digit % 16 + 48);
-	   else
-	   _putchar(digit % 16 + 87);
-	   digit /= 16;
-	   }*/
+	
+	array = create_digit_array(n, 16);
+	if (array != NULL)
+	{
+		for (i = array[0]; i > 1; i--)
+		{
+			if (array[i] > 58)
+				_putchar(array[i]);
+			else
+				_putchar(array[i] + 29) /* digits a - f */
+		}
+	}
+
+	free(array);
 }
 

@@ -31,8 +31,8 @@ int _printf(const char *fmt, ...)
 		i++;
 	}
 	va_end(ap);
-	_putchar('\n');
 
+	_putchar('\n');
 	return (0);
 }
 
