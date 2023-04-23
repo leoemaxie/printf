@@ -52,8 +52,8 @@ void print_str(va_list *ap)
 void print_rev(va_list *ap)
 {
 	char *s = va_arg(*ap, char *);
-	int len = _strlen(s) - 1;
+	int len = _strlen(s);
 
-	for (; len >= 0; len--)
+	for (; len >=  0; len--)
 		_putchar(s[len]);
 }

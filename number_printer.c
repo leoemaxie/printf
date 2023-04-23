@@ -44,10 +44,7 @@ void print_number(int n, int base)
  */
 void print_bin(va_list *ap)
 {
-	int i;
-	int n = va_arg(*ap, int);
-
-	print_number(n, 2);
+	print_number(va_arg(*ap, int), 2);
 }
 
 /**
@@ -59,10 +56,7 @@ void print_bin(va_list *ap)
  */
 void print_digit(va_list *ap)
 {
-	int i;
-	int n = va_arg(*ap, int);
-
-	print_number(n, 10);
+	print_number(va_arg(*ap, int), 10);
 }
 
 /**
@@ -74,9 +68,5 @@ void print_digit(va_list *ap)
  */
 void print_hex(va_list *ap)
 {
-	int i;
-	int n = va_arg(*ap, int);
-
-	print_number(n, 16);
-
+	print_number(va_arg(*ap, int), 16);
 }
