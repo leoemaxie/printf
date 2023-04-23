@@ -24,7 +24,9 @@ Additionally, it handles its own custom formats:
 * %S: string in uppercase and hexadecimal
 
 ## TESTING
-Grant execute permission to compile.sh through `chmod u+x compile.sh` Run `./compile.sh` from the command line to generate the static library `libprintf.a`. Then `cd` into the test directory and run `gcc *.c
+1. Grant execute permission to compile.sh through `chmod u+x compile.sh`
+2. Run `./compile.sh` from the command line to generate the static library `libprintf.a`
+3.  Then `cd` into the test directory and run `gcc *.c
 ../libprintf.a`
 
 ## Authors

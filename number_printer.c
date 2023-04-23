@@ -71,7 +71,7 @@ void print_hex(va_list *ap)
 
 	if (n < 0)
 		n = -n;
-	
+
 	array = create_digit_array(n, 16);
 	if (array != NULL)
 	{
