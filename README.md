@@ -23,6 +23,10 @@ Additionally, it handles its own custom formats:
 * %R: encrypts using ROT-13
 * %S: string in uppercase and hexadecimal
 
+## TESTING
+Grant execute permission to compile.sh through `chmod u+x compile.sh` Run `./compile.sh` from the command line to generate the static library `libprintf.a`. Then `cd` into the test directory and run `gcc *.c
+../libprintf.a`
+
 ## Authors
 * [Leo Emaxie](https://github.com/leoemaxie)
 * [Toluwani Ojikutu](https://github.com/Toluwaniojiks)
