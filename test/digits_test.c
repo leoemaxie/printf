@@ -1,4 +1,5 @@
 #include "main.h"
+#include "test.h"
 
 /**
  * reverse_digit - reverses a digit.
@@ -7,25 +8,19 @@
  *
  * Return: The reversed digit.
  */
-int *create_digit_array(int n, int divisor)
+int *test_create_digit_array(int n, int divisor)
 {
-	int *p = malloc(sizeof(int *));
-	int no_of_elements = 0;
+	int i, j;
+	int *p = create_digit_array(n, divisor);
 
 	if (p == NULL)
 		return (NULL);
 
-	p[0] = no_of_elements;
-	while (n / divisor)
-	{
-		/* 48 is added because numbers in ASCI starts from 48 */
-		p[no_of_elements + 1] = n % divisor + 48;
-		n /= divisor;
-		no_of_elements++;
-	}
-	p[0] = no_of_elements;
-
-	return (p);
+	i = p[0];
+	printf("No of elements: %d", i);
+		for (j = 1; j < i; j++)
+			_putchar(array[i]);
+	free(p);
 }
 
 /**
@@ -35,10 +30,10 @@ int *create_digit_array(int n, int divisor)
  *
  * Return: Nothing.
  */
-void print_digit(va_list *ap)
+
+int test_print_digit(int n)
 {
 	int i;
-	int n = va_arg(*ap, int);
 	int *array;
 
 	if (n < 0)
@@ -49,9 +44,8 @@ void print_digit(va_list *ap)
 
 	array = create_digit_array(n, 10);
 	if (array != NULL)
-		for (i = array[0]; i > 1; i--)
+		for (i = 1; i < array[0]; i++)
 			_putchar(array[i]);
-
 	free(array);
 }
 
@@ -62,7 +56,7 @@ void print_digit(va_list *ap)
  *
  * Return: Nothing.
  */
-void print_hex(va_list *ap)
+void test_print_hex(int n)
 {
 	int n = va_arg(*ap, int);
 	int digit;
