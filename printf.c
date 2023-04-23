@@ -34,6 +34,6 @@ int _printf(const char *fmt, ...)
 	va_end(ap);
 
 	_putchar('\n');
-	return (0);
+	return (i);
 }
 
