@@ -1,6 +1,32 @@
 #include "main.h"
 
 /**
+ * print_char - prints a char.
+ *
+ * @ap: The character to print.
+ *
+ * Return: Nothing.
+ */
+void print_char(va_list *ap)
+{
+	int c = va_arg(*ap, int);
+
+	_putchar(c);
+}
+
+/**
+ * print_percent - prints a percent.
+ *
+ * @ap: The character to print.
+ *
+ * Return: Nothing.
+ */
+void print_percent(va_list *ap)
+{
+	print_char(ap);
+}
+
+/**
  * print_str - prints a string.
  *
  * @ap: The string to print.
@@ -17,15 +43,17 @@ void print_str(va_list *ap)
 }
 
 /**
- * print_char - prints a char.
+ * print_rev - prints a string in reverse.
  *
- * @ap: The character to print.
+ * @ap: The string to print.
  *
  * Return: Nothing.
  */
-void print_char(va_list *ap)
+void print_rev(va_list *ap)
 {
-	int c = va_arg(*ap, int);
+	char *s = va_arg(*ap, char *);
+	int len = _strlen(s) - 1;
 
-	_putchar(c);
+	for (; len >= 0; len--)
+		_putchar(s[len]);
 }

@@ -13,7 +13,8 @@ int _printf(const char *fmt, ...)
 	int i = 0;
 	va_list ap;
 	fmt_t formatters[] = {
-		{print_char, 'c'}, {print_digit, 'd'}, {print_hex, 'x'}, {print_str, 's'}
+		{print_bin, 'b'},  {print_char, 'c'}, {print_digit, 'd'}, {print_hex, 'x'},
+		{print_rev, 'r'}, {print_str, 's'}, {print_hex, 'x'}, {print_percent, '%'}
 	};
 	int size = sizeof(formatters) / sizeof(formatters[0]);
 

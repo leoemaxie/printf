@@ -3,7 +3,7 @@
 
 #define BUFFER_SIZE 1024
 
-/* includes */
+/** Includes **/
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -21,19 +21,30 @@ typedef struct format_t
 	char specifier;
 } fmt_t;
 
+/**** Declarations *****/
 
-/* Declarations */
+/** Utils **/
 int check_percent(char c);
 int *create_digit_array(int n, int base);
+
+/** Strings **/
+int _strlen(const char *s);
+
+/** Printers & Specifiers **/
+void print_bin(va_list *ap);
 void print_char(va_list *ap);
 void print_digit(va_list *ap);
 void print_hex(va_list *ap);
+void print_int(va_list *ap);
+void print_percent(va_list *ap);
+void print_rev(va_list *ap);
 void print_str(va_list *ap);
-void print_format(int index, va_list *ap, fmt_t *f);
-int _printf(const char *fmt, ...);
+
+/** Formatters & Output **/
 void _putchar(char c);
+int _printf(const char *fmt, ...);
+void print_number(int n, int base);
+void print_format(int index, va_list *ap, fmt_t *f);
 int skip_chars(const char *s, int *start, int size, fmt_t *f);
-int _strlen(const char *s);
-void _strrev(char *s);
 
 #endif
