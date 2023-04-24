@@ -14,7 +14,8 @@ int _printf(const char *fmt, ...)
 	va_list ap;
 	fmt_t formatters[] = {
 		{print_bin, 'b'},  {print_char, 'c'}, {print_dec, 'd'}, {print_hex, 'x'},
-		{print_hex_upper, 'X'}, {print_oct, 'o'}, {print_rev, 'r'}, {print_str, 's'}
+		{print_hex_upper, 'X'}, {print_oct, 'o'}, {print_rev, 'r'}, {print_addr, 'p'}, 
+		{print_rot13, 'R'}, {print_str, 's'}
 	};
 	int size = sizeof(formatters) / sizeof(formatters[0]);
 

@@ -9,7 +9,7 @@
  *
  * Return: A pointer to the array of digits
  */
-int *create_digit_array(int n, int base)
+int *create_digit_array(unsigned int n, int base)
 {
 	int *p = malloc(sizeof(int *));
 	int no_of_elements = 0;

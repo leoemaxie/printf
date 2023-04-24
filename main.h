@@ -30,30 +30,42 @@ typedef struct format
 /***** Declarations *****/
 
 /** Utils **/
-int *create_digit_array(int n, int base);
+int *create_digit_array(unsigned int n, int base);
 int get_fmt_index(char c, int size, fmt_t *f);
 int skip_chars(const char *s, int *start);
 void set_start_index(int *start, int specifier_index,int fmt_index);
 
-/** Strings **/
+/** strlen **/
 int _strlen(const char *s);
 int str_printed_len(int fmt_index, va_list *ap, fmt_t *f);
 
-/** Printers & Specifiers **/
+/** print_base **/
+int print_base(unsigned int n, unsigned int base, int alpha);
 int print_bin(va_list *ap);
-int print_char(va_list *ap);
-int print_dec(va_list *ap);
-int print_int(va_list *ap);
 int print_hex(va_list *ap);
 int print_hex_upper(va_list *ap);
-int print_rev(va_list *ap);
 int print_oct(va_list *ap);
+
+/** print_nums **/
+int print_dec(va_list *ap);
+int print_int(va_list *ap);
+int print_number(int n);
+
+/** print_chars **/
+int print_char(va_list *ap);
 int print_str(va_list *ap);
+int print_rev(va_list *ap);
+
+/** print_addr **/
+int print_addr(va_list *ap);
+int print_base_addr(unsigned long int a);
+
+/** print_custom **/
+int print_rot13(va_list *ap);
 
 /** Formatters & Output **/
 int print(const char *s, int *start, int size, va_list *ap, fmt_t *f);
 int _printf(const char *fmt, ...);
-int print_number(int n, int base, bool has_alpha, int alpha);
 void _putchar(char c);
 
 #endif
