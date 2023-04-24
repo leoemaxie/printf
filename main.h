@@ -9,42 +9,51 @@
 #include <unistd.h>
 
 #include <stdio.h>
+
+/** Boolean types **/
+typedef short bool;
+#define true 1
+#define false 0
+
 /**
- * struct format_t - Format structure.
+ * struct format - Format structure.
  *
  * @print: Pointer to a print function for various specifiers.
  * @specifier: The specified format to use.
 */
-typedef struct format_t
+typedef struct format
 {
-	void (*print)(va_list *ap);
+	int (*print)(va_list *ap);
 	char specifier;
 } fmt_t;
 
-/**** Declarations *****/
+/***** Declarations *****/
 
 /** Utils **/
-int check_percent(char c);
 int *create_digit_array(int n, int base);
+int get_fmt_index(char c, int size, fmt_t *f);
+int skip_chars(const char *s, int *start);
+void set_start_index(int *start, int specifier_index,int fmt_index);
 
 /** Strings **/
 int _strlen(const char *s);
+int str_printed_len(int fmt_index, va_list *ap, fmt_t *f);
 
 /** Printers & Specifiers **/
-void print_bin(va_list *ap);
-void print_char(va_list *ap);
-void print_digit(va_list *ap);
-void print_hex(va_list *ap);
-void print_int(va_list *ap);
-void print_percent(va_list *ap);
-void print_rev(va_list *ap);
-void print_str(va_list *ap);
+int print_bin(va_list *ap);
+int print_char(va_list *ap);
+int print_dec(va_list *ap);
+int print_int(va_list *ap);
+int print_hex(va_list *ap);
+int print_hex_upper(va_list *ap);
+int print_rev(va_list *ap);
+int print_oct(va_list *ap);
+int print_str(va_list *ap);
 
 /** Formatters & Output **/
-void _putchar(char c);
+int print(const char *s, int *start, int size, va_list *ap, fmt_t *f);
 int _printf(const char *fmt, ...);
-void print_number(int n, int base);
-void print_format(int index, va_list *ap, fmt_t *f);
-int skip_chars(const char *s, int *start, int size, fmt_t *f);
+int print_number(int n, int base, bool has_alpha, int alpha);
+void _putchar(char c);
 
 #endif

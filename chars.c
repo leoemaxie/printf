@@ -5,25 +5,14 @@
  *
  * @ap: The character to print.
  *
- * Return: Nothing.
+ * Return: The number of characters printed.
  */
-void print_char(va_list *ap)
+int print_char(va_list *ap)
 {
 	int c = va_arg(*ap, int);
 
 	_putchar(c);
-}
-
-/**
- * print_percent - prints a percent.
- *
- * @ap: The character to print.
- *
- * Return: Nothing.
- */
-void print_percent(va_list *ap)
-{
-	print_char(ap);
+	return (1);
 }
 
 /**
@@ -31,15 +20,17 @@ void print_percent(va_list *ap)
  *
  * @ap: The string to print.
  *
- * Return: Nothing.
+ * Return: The number of characters printed.
  */
-void print_str(va_list *ap)
+int print_str(va_list *ap)
 {
 	int i;
 	char *s = va_arg(*ap, char *);
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i] != '\0'; ++i)
 		_putchar(s[i]);
+
+	return (i);
 }
 
 /**
@@ -47,13 +38,17 @@ void print_str(va_list *ap)
  *
  * @ap: The string to print.
  *
+ * Return: The number of characters printed.
  * Return: Nothing.
  */
-void print_rev(va_list *ap)
+int print_rev(va_list *ap)
 {
 	char *s = va_arg(*ap, char *);
-	int len = _strlen(s);
+	int len = _strlen(s) - 1;
 
 	for (; len >=  0; len--)
 		_putchar(s[len]);
+
+	return (len);
 }
+
