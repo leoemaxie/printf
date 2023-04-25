@@ -18,7 +18,7 @@ int print_rev(va_list ap, flag_t *f)
 	if (s == NULL)
 		s = "(null)";
 
-	while (*s)
+	while (s[len])
 		len++;
 
 	for (i = len - 1; i >= 0; i--)
@@ -54,8 +54,8 @@ int print_Str(va_list ap, flag_t *f)
 		{
 			_puts("\\x");
 			len += 2;
-			res = convert(s[i], 16, 87);
-			if (!res[0])
+			res = convert(s[i], 16, 55);
+			if (!res[1])
 				len += _putchar('0');
 			len += _puts(res);
 		}
@@ -84,18 +84,19 @@ int print_rot13(va_list ap, flag_t *f)
 
 	(void)f;
 
+	if (s == NULL)
+		return (_puts("(null)"));
+
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] < 'A' || (s[i] > 'Z' && s[i] < 'a') || s[j] > 'z')
-			_putchar(s[j]);
+			_putchar(s[i]);
 
 		else
 		{
 			for (j = 0; j <= 52; j++)
-			{
-				if (a[j] == s[i])
-					_putchar(b[i]);
-			}
+				if (s[i] == a[j])
+					_putchar(b[j]);
 		}
 	}
 

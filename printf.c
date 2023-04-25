@@ -34,8 +34,8 @@ int _printf(const char *fmt, ...)
 				continue;
 			}
 
-			while (get_flag(fmt[i], &flags))
-				i++;
+			//while (get_flag(fmt[i], &flags))
+				//i++;
 
 			fmt_print = get_fmt_print(fmt[i]);
 			len += (fmt_print) ? fmt_print(ap, &flags) : _printf("%%%c", fmt[i]);

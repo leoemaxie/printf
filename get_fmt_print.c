@@ -17,6 +17,7 @@ int (*get_fmt_print(char c))(va_list, flag_t *)
 		{print_dec, 'd'},
 		{print_hex, 'x'},
 		{print_hex_upper, 'X'},
+		{print_int, 'i'},
 		{print_oct, 'o'},
 		{print_rev, 'r'},
 		{print_rot13, 'R'},

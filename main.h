@@ -8,8 +8,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include <stdio.h>
-
 /**
  * struct flag - Flag structure for additional modification of the format
  * structure passed to printf.
@@ -71,7 +69,7 @@ int (*get_fmt_print(char c))(va_list ap, flag_t *f);
 int get_flag(char c, flag_t *f);
 
 /** Converters **/
-char *convert(unsigned int n, unsigned int base, int alpha);
+char *convert(unsigned long int n, int base, int alpha);
 
 /** write_output **/
 int _putchar(int c);

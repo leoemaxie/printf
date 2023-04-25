@@ -7,7 +7,7 @@
  *
  * Return: Nothing.
  */
-char *convert(unsigned int n, unsigned int base, int alpha)
+char *convert(unsigned long int n, int base, int alpha)
 {
 	int i = 0, j = 0;
 	char s[50];

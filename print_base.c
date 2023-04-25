@@ -10,7 +10,7 @@
  */
 int print_bin(va_list ap, flag_t *f)
 {
-	char *s = convert(va_arg(ap, unsigned int), 2, 0);
+	char *s = convert(va_arg(ap, unsigned long int), 2, 0);
 	int n = _puts(s);
 
 	(void)f;
@@ -28,7 +28,7 @@ int print_bin(va_list ap, flag_t *f)
  */
 int print_oct(va_list ap, flag_t *f)
 {
-	char *s = convert(va_arg(ap, unsigned int), 8, 0);
+	char *s = convert(va_arg(ap, unsigned long int), 8, 0);
 	int n = _puts(s);
 
 	(void)f;
@@ -47,7 +47,7 @@ int print_oct(va_list ap, flag_t *f)
  */
 int print_hex(va_list ap, flag_t *f)
 {
-	char *s = convert(va_arg(ap, unsigned int), 16, 87);
+	char *s = convert(va_arg(ap, unsigned long int), 16, 87);
 	int n = _puts(s);
 
 	(void)f;
@@ -66,7 +66,7 @@ int print_hex(va_list ap, flag_t *f)
  */
 int print_hex_upper(va_list ap, flag_t *f)
 {
-	char *s = convert(va_arg(ap, unsigned int), 16, 55);
+	char *s = convert(va_arg(ap, unsigned long int), 16, 55);
 	int n = _puts(s);
 
 	(void)f;
