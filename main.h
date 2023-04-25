@@ -58,7 +58,6 @@ int print_str(va_list ap, flag_t *f);
 
 /** print_addr **/
 int print_addr(va_list ap, flag_t *f);
-int print_base_addr(unsigned long int a);
 
 /** print_custom **/
 int print_rev(va_list ap, flag_t *f);
@@ -73,7 +72,6 @@ int get_flag(char c, flag_t *f);
 
 /** Converters **/
 char *convert(unsigned int n, unsigned int base, int alpha);
-void strrev(char c);
 
 /** write_output **/
 int _putchar(int c);

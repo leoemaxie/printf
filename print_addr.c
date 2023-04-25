@@ -23,7 +23,6 @@ int print_base_addr(unsigned long int a)
 
 	return (count);
 }
-
 /**
  * print_addr - Prints rhe address of a variable.
  *
@@ -34,9 +33,26 @@ int print_base_addr(unsigned long int a)
  */
 int print_addr(va_list ap, flag_t *f)
 {
+	int i = 50;
+	int count = 0;
+	unsigned long int n = va_arg(ap, unsigned long int);
+	char s[50];
+
 	(void)f;
-	_putchar('0');
-	_putchar('x');
-	return (print_base_addr(va_arg(ap, unsigned long int)));
+	count += _puts("0x");
+
+	while (n != 0)
+	{
+		if (n % 16 > 9)
+			s[i--] = (n % 16 + 87);
+		else
+			s[i--] = (n % 16 + 48);
+		n /= 16;
+	}
+
+	for (; i <= 50; i++)
+		count += _putchar(s[i]);
+
+	return (count);
 }
 

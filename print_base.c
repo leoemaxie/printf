@@ -66,7 +66,7 @@ int print_hex(va_list ap, flag_t *f)
  */
 int print_hex_upper(va_list ap, flag_t *f)
 {
-	char *s = convert(va_arg(ap, unsigned int), 2, 55);
+	char *s = convert(va_arg(ap, unsigned int), 16, 55);
 	int n = _puts(s);
 
 	(void)f;

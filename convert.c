@@ -1,4 +1,4 @@
-#include "strings.h"
+#include "main.h"
 
 /**
  * strrev - Reverses the characters in a string.
@@ -7,17 +7,29 @@
  *
  * Return: Nothing.
  */
-void strrev(char *s)
+char *convert(unsigned int n, unsigned int base, int alpha)
 {
-	int i;
-	int len = _strlen(s) - 1;
+	int i = 0, j = 0;
+	char s[50];
+	char *cpy;
 
-	for (i = 0; i < len / 2; i++)
+	while (n)
 	{
-		char tmp = s[i];
-		int last = len - i;
-
-		s[i] = s[last];
-		s[last] = tmp;
+		if (n % base > 9)
+			s[i++] = n % base + alpha;
+		else
+			s[i++] = n % base + 48;
+		n /= base;
 	}
+
+	cpy = malloc(i);
+
+	if (cpy == NULL)
+		return (0);
+
+	for (; i > 0; j++)
+		cpy[j] = s[--i];
+	cpy[j] = '\0';
+
+	return (cpy);
 }
