@@ -20,7 +20,6 @@ int print_base_addr(unsigned long int a)
 			_putchar(a % 16 + 48);
 	}
 	count++;
-	increase_formatted_strlen();
 
 	return (count);
 }
@@ -29,13 +28,15 @@ int print_base_addr(unsigned long int a)
  * print_addr - Prints rhe address of a variable.
  *
  * @ap: The address to print.
+ * @f: The flag modifier.
  *
  * Return: The lengrh of the address.
  */
-int print_addr(va_list *ap)
+int print_addr(va_list ap, flag_t *f)
 {
+	(void)f;
 	_putchar('0');
 	_putchar('x');
-	return (print_base_addr(va_arg(*ap, unsigned long int)));
+	return (print_base_addr(va_arg(ap, unsigned long int)));
 }
 

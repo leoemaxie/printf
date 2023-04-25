@@ -10,10 +10,20 @@
 
 #include <stdio.h>
 
-/** Boolean types **/
-typedef short bool;
-#define true 1
-#define false 0
+/**
+ * struct flag - Flag structure for additional modification of the format
+ * structure passed to printf.
+ *
+ * @hash: Hash flag (#).
+ * @plus: Pkus flag (+).
+ * @space: Spacr flag (' ').
+*/
+typedef struct flag
+{
+	int hash;
+	int plus;
+	int space;
+} flag_t;
 
 /**
  * struct format - Format structure.
@@ -23,54 +33,53 @@ typedef short bool;
 */
 typedef struct format
 {
-	int (*print)(va_list *ap);
+	int (*print)(va_list ap, flag_t *f);
 	char specifier;
 } fmt_t;
 
 /***** Declarations *****/
 
-/** Utils **/
-int get_fmt_index(char c, int size, fmt_t *f);
-int skip_chars(const char *s, int *start);
-void set_start_index(int *start, int specifier_index,int fmt_index);
-
-/** strings **/
-int increase_formatted_strlen(void);
-int _strlen(const char *s);
-int str_printed_len(int fmt_index, va_list *ap, fmt_t *f);
-void strrev(char *s);
-
 /** print_base **/
-int print_base(unsigned int n, unsigned int base, int alpha);
-int print_bin(va_list *ap);
-int print_hex(va_list *ap);
-int print_hex_upper(va_list *ap);
-int print_oct(va_list *ap);
+int print_bin(va_list ap, flag_t *f);
+int print_hex(va_list ap, flag_t *f);
+int print_hex_upper(va_list ap, flag_t *f);
+int print_oct(va_list ap, flag_t *f);
 
 /** print_nums **/
-int print_dec(va_list *ap);
-int print_int(va_list *ap);
-int print_number(int n);
-int print_unsigned(va_list *ap);
+int count_digits(int n);
+int print_dec(va_list ap, flag_t *f);
+int print_int(va_list ap, flag_t *f);
+void print_number(int n);
+int print_unsigned(va_list ap, flag_t *f);
 
 /** print_chars **/
-int print_char(va_list *ap);
-int print_str(va_list *ap);
-int print_rev(va_list *ap);
+int print_char(va_list ap, flag_t *f);
+int print_str(va_list ap, flag_t *f);
 
 /** print_addr **/
-int print_addr(va_list *ap);
+int print_addr(va_list ap, flag_t *f);
 int print_base_addr(unsigned long int a);
 
 /** print_custom **/
-int print_rot13(va_list *ap);
+int print_rev(va_list ap, flag_t *f);
+int print_rot13(va_list ap, flag_t *f);
+int print_Str(va_list ap, flag_t *f);
+
+/** get_fmt_print **/
+int (*get_fmt_print(char c))(va_list ap, flag_t *f);
+
+/** get_flag**/
+int get_flag(char c, flag_t *f);
+
+/** Converters **/
+char *convert(unsigned int n, unsigned int base, int alpha);
+void strrev(char c);
 
 /** write_output **/
 int _putchar(int c);
 int _puts(const char *s);
 
 /** Formatters & Output **/
-int print(const char *s, int *start, int size, va_list *ap, fmt_t *f);
 int _printf(const char *fmt, ...);
 
 #endif

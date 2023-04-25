@@ -10,28 +10,42 @@
 
 int _printf(const char *fmt, ...)
 {
-	int i = 0, len = 0;
+	int (*fmt_print)(va_list, flag_t *);
+	int i, len = 0;
+	flag_t flags = {0, 1, 2};
 	va_list ap;
-	fmt_t formatters[] = {
-		{print_bin, 'b'},  {print_char, 'c'}, {print_dec, 'd'}, {print_hex, 'x'},
-		{print_hex_upper, 'X'}, {print_oct, 'o'}, {print_rev, 'r'}, {print_addr, 'p'}, 
-		{print_rot13, 'R'}, {print_str, 's'}, {print_unsigned, 'u'}
-	};
-	int size = sizeof(formatters) / sizeof(formatters[0]);
+
+	/* Empty string or an almost empty string with only a percent */
+	if (fmt == NULL || (fmt[0] == '%' && fmt[1] == '\0'))
+		return (-1);
+	/* Flags present but no more characters. */
+	if (fmt[0] == '%' && fmt[1] == ' ' && fmt[2] == '\0')
+		return (-1);
 
 	va_start(ap, fmt);
-	while (fmt[i] != '\0')
+	for (i = 0; fmt[i] != '\0'; i++)
 	{
 		if (fmt[i] == '%')
-			 len = print(fmt, &i, size, &ap, formatters);
-		else
-			_putchar(fmt[i]);
-		i++;
+		{
+			i++;
+			if (fmt[i] == '%')
+			{
+				len += _putchar('%');
+				continue;
+			}
+
+			while (get_flag(fmt[i], &flags))
+				i++;
+
+			fmt_print = get_fmt_print(fmt[i]);
+			len += (fmt_print) ? fmt_print(ap, &flags) : _printf("%%%c", fmt[i]);
+		} else
+			len += _putchar(fmt[i]);
+
 	}
+	_putchar('\n');
+	_putchar(-1);
 	va_end(ap);
 
-	_putchar('\n');
-
-	return (_putchar(-1));
+	return (len);
 }
-
