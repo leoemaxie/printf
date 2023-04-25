@@ -1,11 +1,13 @@
 #include "main.h"
 
 /**
- * strrev - Reverses the characters in a string.
+ * convert - Converts a number to a given basw.
  *
- * @s: The string to reverse.
+ * @n: The number to convert.
+ * @base: The base to convert the number into.
+ * @alpha: The alphabetic numbers of the base if any.
  *
- * Return: Nothing.
+ * Return: A string of the converted digits.
  */
 char *convert(unsigned long int n, int base, int alpha)
 {

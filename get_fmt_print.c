@@ -7,11 +7,12 @@
  * @c: The specifier to check.
  *
  * Return: A pointer to the print function of the format structure if present
- * else NULL */
+ * else NULL.
+ */
 int (*get_fmt_print(char c))(va_list, flag_t *)
 {
 	fmt_t formatters[] = {
-		{print_addr, 'p'}, 
+		{print_addr, 'p'},
 		{print_bin, 'b'},
 		{print_char, 'c'},
 		{print_dec, 'd'},
@@ -23,11 +24,11 @@ int (*get_fmt_print(char c))(va_list, flag_t *)
 		{print_rot13, 'R'},
 		{print_str, 's'},
 		{print_Str, 'S'},
-		{print_addr, 'p'}, 
+		{print_addr, 'p'},
 		{print_unsigned, 'u'}
 	};
 
-	int i;
+       	int i;
 	int size = sizeof(formatters) / sizeof(formatters[0]);
 
 	for (i = 0; i <= size; i++)
