@@ -22,6 +22,7 @@ int print_base(unsigned int n, unsigned int base, int alpha)
 			_putchar(n % base + 48);
 	}
 	count++;
+	increase_formatted_strlen();
 
 	return (count);
 }

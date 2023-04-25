@@ -20,6 +20,19 @@ int _strlen(const char *s)
 }
 
 /**
+ * formatted_str_len - Increases the length of formatted and printed data.
+ *
+ * Return: The length of length of the formatted string.
+ */
+int increase_formatted_strlen(void)
+{
+	static int len;
+
+	len += 1;
+	return (len);
+}
+
+/**
  * str_printed_len - Calculates the length of string printed.
  *
  * @s: Index of the format structure handling the printing in the fmt_t array.

@@ -15,7 +15,7 @@ int _printf(const char *fmt, ...)
 	fmt_t formatters[] = {
 		{print_bin, 'b'},  {print_char, 'c'}, {print_dec, 'd'}, {print_hex, 'x'},
 		{print_hex_upper, 'X'}, {print_oct, 'o'}, {print_rev, 'r'}, {print_addr, 'p'}, 
-		{print_rot13, 'R'}, {print_str, 's'}
+		{print_rot13, 'R'}, {print_str, 's'}, {print_unsigned, 'u'}
 	};
 	int size = sizeof(formatters) / sizeof(formatters[0]);
 
@@ -23,7 +23,7 @@ int _printf(const char *fmt, ...)
 	while (fmt[i] != '\0')
 	{
 		if (fmt[i] == '%')
-			 len += print(fmt, &i, size, &ap, formatters);
+			 len = print(fmt, &i, size, &ap, formatters);
 		else
 			_putchar(fmt[i]);
 		i++;
@@ -32,6 +32,6 @@ int _printf(const char *fmt, ...)
 
 	_putchar('\n');
 
-	return (len + i);
+	return (_putchar(-1));
 }
 

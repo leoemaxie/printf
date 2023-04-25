@@ -20,6 +20,7 @@ int print_base_addr(unsigned long int a)
 			_putchar(a % 16 + 48);
 	}
 	count++;
+	increase_formatted_strlen();
 
 	return (count);
 }

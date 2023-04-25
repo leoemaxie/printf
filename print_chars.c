@@ -11,7 +11,10 @@ int print_char(va_list *ap)
 {
 	int c = va_arg(*ap, int);
 
+	if (c < 0 || c > 127)
+		return (-1); /* Invalid ASCII */
 	_putchar(c);
+
 	return (1);
 }
 
@@ -27,10 +30,10 @@ int print_str(va_list *ap)
 	int i;
 	char *s = va_arg(*ap, char *);
 
-	for (i = 0; s[i] != '\0'; ++i)
-		_putchar(s[i]);
+	if (s == NULL)
+		s = "(nill)";
 
-	return (i);
+	return (_puts(s));
 }
 
 /**
@@ -39,16 +42,16 @@ int print_str(va_list *ap)
  * @ap: The string to print.
  *
  * Return: The number of characters printed.
- * Return: Nothing.
  */
 int print_rev(va_list *ap)
 {
 	char *s = va_arg(*ap, char *);
-	int len = _strlen(s) - 1;
 
-	for (; len >=  0; len--)
-		_putchar(s[len]);
+	if (s == NULL)
+		s = "(nill)";
+	else
+		strrev(s);
 
-	return (len);
+	return (_puts(s));
 }
 

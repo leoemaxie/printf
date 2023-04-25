@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_dec - prints a number in base 10.
+ * print_dec - prints a decimal number.
  *
  * @ap: variadic arguments to print from print f.
  *
@@ -10,6 +10,18 @@
 int print_dec(va_list *ap)
 {
 	return (print_number(va_arg(*ap, int)));
+}
+
+/**
+ * print_unsign - prints an unsigned number in base 10.
+ *
+ * @ap: variadic arguments to print from print f.
+ *
+ * Return: Number of digits printed.
+ */
+int print_unsigned(va_list *ap)
+{
+	return (print_base(va_arg(*ap, unsigned int), 10, 0));
 }
 
 /**

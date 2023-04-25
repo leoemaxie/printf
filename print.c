@@ -1,18 +1,6 @@
 #include "main.h"
 
 /**
- * _putchar - Prints a character to stdout.
- *
- * @c: The character.
- *
- * Return: Nothing.
- */
-void _putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-/**
  * print - Prints any data in the specifued format.
  *
  * @s: The format string.
@@ -33,7 +21,9 @@ int print(const char *s, int *start, int size, va_list *ap, fmt_t *f)
 
 	if (fmt_index == -2)
 		_putchar('%');
+	if (fmt_index > -1)
+		f[fmt_index].print(ap);
 
-	return (str_printed_len(fmt_index, ap, f));
+	return (increase_formatted_strlen());
 }
 

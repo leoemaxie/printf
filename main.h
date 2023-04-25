@@ -1,7 +1,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#define BUFFER_SIZE 1024
+#define BUFF_SIZE 1024
 
 /** Includes **/
 #include <stdarg.h>
@@ -30,14 +30,15 @@ typedef struct format
 /***** Declarations *****/
 
 /** Utils **/
-int *create_digit_array(unsigned int n, int base);
 int get_fmt_index(char c, int size, fmt_t *f);
 int skip_chars(const char *s, int *start);
 void set_start_index(int *start, int specifier_index,int fmt_index);
 
-/** strlen **/
+/** strings **/
+int increase_formatted_strlen(void);
 int _strlen(const char *s);
 int str_printed_len(int fmt_index, va_list *ap, fmt_t *f);
+void strrev(char *s);
 
 /** print_base **/
 int print_base(unsigned int n, unsigned int base, int alpha);
@@ -50,6 +51,7 @@ int print_oct(va_list *ap);
 int print_dec(va_list *ap);
 int print_int(va_list *ap);
 int print_number(int n);
+int print_unsigned(va_list *ap);
 
 /** print_chars **/
 int print_char(va_list *ap);
@@ -63,9 +65,12 @@ int print_base_addr(unsigned long int a);
 /** print_custom **/
 int print_rot13(va_list *ap);
 
+/** write_output **/
+int _putchar(int c);
+int _puts(const char *s);
+
 /** Formatters & Output **/
 int print(const char *s, int *start, int size, va_list *ap, fmt_t *f);
 int _printf(const char *fmt, ...);
-void _putchar(char c);
 
 #endif
