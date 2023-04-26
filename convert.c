@@ -51,6 +51,6 @@ int handle_malloc(char *s)
 		return (0);
 
 	count += _puts(s);
-	free (s);
+	free(s);
 	return (count);
 }
