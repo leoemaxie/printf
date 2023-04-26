@@ -76,17 +76,6 @@ char *convert(unsigned long int n, int base, int alpha);
 int _putchar(int c);
 int _puts(const char *s);
 
-<<<<<<< HEAD
-/** Formatters & Output **/
+/** printf **/
 int _printf(const char *fmt, ...);
-
-=======
-/* Declarations */
-int _printf(const char *format, ...);
-void _putchar(char c);
-void _puts(char *c);
-int print_string(char *str);
-void print_char(va_list *ap);
-void print_str(va_list *ap);
->>>>>>> _printf
 #endif
