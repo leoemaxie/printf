@@ -1,6 +1,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+
 #define BUFF_SIZE 1024
 
 /** Includes **/
@@ -69,8 +70,18 @@ int print_rot13(va_list *ap);
 int _putchar(int c);
 int _puts(const char *s);
 
+<<<<<<< HEAD
 /** Formatters & Output **/
 int print(const char *s, int *start, int size, va_list *ap, fmt_t *f);
 int _printf(const char *fmt, ...);
 
+=======
+/* Declarations */
+int _printf(const char *format, ...);
+void _putchar(char c);
+void _puts(char *c);
+int print_string(char *str);
+void print_char(va_list *ap);
+void print_str(va_list *ap);
+>>>>>>> _printf
 #endif
