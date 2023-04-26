@@ -95,8 +95,13 @@ int print_rot13(va_list ap, flag_t *f)
 		else
 		{
 			for (j = 0; j <= 52; j++)
+			{
 				if (s[i] == a[j])
+				{
 					_putchar(b[j]);
+					break;
+				}
+			}
 		}
 	}
 
