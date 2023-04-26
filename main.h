@@ -71,6 +71,7 @@ int get_flag(char c, flag_t *f);
 
 /** Converters **/
 char *convert(unsigned long int n, int base, int alpha);
+int handle_malloc(char *s);
 
 /** write_output **/
 int _putchar(int c);

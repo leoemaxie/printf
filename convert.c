@@ -35,3 +35,22 @@ char *convert(unsigned long int n, int base, int alpha)
 
 	return (cpy);
 }
+
+/**
+ * handle_malloc - Handles memory allocation.
+ *
+ * @s: The string to handle allocation.
+ *
+ * Return: Number of bytes printed else return 0.
+ */
+int handle_malloc(char *s)
+{
+	int count = 0;
+
+	if (s == NULL)
+		return (0);
+
+	count += _puts(s);
+	free (s);
+	return (count);
+}

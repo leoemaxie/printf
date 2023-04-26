@@ -89,7 +89,7 @@ int print_rot13(va_list ap, flag_t *f)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] < 'A' || (s[i] > 'Z' && s[i] < 'a') || s[j] > 'z')
+		if (s[i] < 'A' || (s[i] > 'Z' && s[i] < 'a') || s[i] > 'z')
 			_putchar(s[i]);
 
 		else

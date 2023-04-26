@@ -87,11 +87,6 @@ int print_int(va_list ap, flag_t *f)
  */
 int print_uint(va_list ap, flag_t *f)
 {
-	char *s = convert(va_arg(ap, unsigned long int), 10, 0);
-	int n = _puts(s);
-
 	(void)f;
-	free(s);
-
-	return (n);
+	return (handle_malloc(convert(va_arg(ap, unsigned int), 2, 0)));
 }

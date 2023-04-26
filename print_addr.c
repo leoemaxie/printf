@@ -14,9 +14,7 @@ int print_addr(va_list ap, flag_t *f)
 	char *s = convert(va_arg(ap, unsigned long int), 16, 87);
 
 	(void)f;
-	count += _puts(s);
-	free(s);
-
+	count += handle_malloc(s);
 	return (count);
 }
 
