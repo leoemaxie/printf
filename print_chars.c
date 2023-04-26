@@ -4,17 +4,14 @@
  * print_char - prints a char.
  *
  * @ap: The character to print.
+ * @f: The flag modifier.
  *
  * Return: The number of characters printed.
  */
-int print_char(va_list *ap)
+int print_char(va_list ap, flag_t *f)
 {
-	int c = va_arg(*ap, int);
-
-	if (c < 0 || c > 127)
-		return (-1); /* Invalid ASCII */
-	_putchar(c);
-
+	(void)f;
+	_putchar(va_arg(ap, int));
 	return (1);
 }
 
@@ -22,36 +19,18 @@ int print_char(va_list *ap)
  * print_str - prints a string.
  *
  * @ap: The string to print.
+ * @f: The flag modifier.
  *
  * Return: The number of characters printed.
  */
-int print_str(va_list *ap)
+int print_str(va_list ap, flag_t *f)
 {
-	int i;
-	char *s = va_arg(*ap, char *);
+	char *s = va_arg(ap, char *);
+
+	(void)f;
 
 	if (s == NULL)
-		s = "(nill)";
+		s = "(null)";
 
 	return (_puts(s));
 }
-
-/**
- * print_rev - prints a string in reverse.
- *
- * @ap: The string to print.
- *
- * Return: The number of characters printed.
- */
-int print_rev(va_list *ap)
-{
-	char *s = va_arg(*ap, char *);
-
-	if (s == NULL)
-		s = "(nill)";
-	else
-		strrev(s);
-
-	return (_puts(s));
-}
-

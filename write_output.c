@@ -11,8 +11,7 @@
  */
 int _putchar(int c)
 {
-	static int i = 0;
-	static int total = 0;
+	static int i;
 	static char buffer[BUFF_SIZE];
 
 	if (c == -1 || i >= BUFF_SIZE)
@@ -23,10 +22,9 @@ int _putchar(int c)
 	{
 		buffer[i] = c;
 		i++;
-		total++;
 	}
 
-	return (total);
+	return (1);
 }
 
 /**
