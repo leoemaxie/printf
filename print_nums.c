@@ -78,14 +78,14 @@ int print_int(va_list ap, flag_t *f)
 }
 
 /**
- * print_unsigned - prints an unsigned number in base 10.
+ * print_uint - prints an unsigned number in base 10.
  *
  * @ap: variadic arguments to print from print f.
  * @f: The flag modifier.
  *
  * Return: Number of digits printed.
  */
-int print_unsigned(va_list ap, flag_t *f)
+int print_uint(va_list ap, flag_t *f)
 {
 	char *s = convert(va_arg(ap, unsigned long int), 10, 0);
 	int n = _puts(s);

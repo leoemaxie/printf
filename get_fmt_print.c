@@ -25,10 +25,10 @@ int (*get_fmt_print(char c))(va_list, flag_t *)
 		{print_str, 's'},
 		{print_Str, 'S'},
 		{print_addr, 'p'},
-		{print_unsigned, 'u'}
+		{print_uint, 'u'}
 	};
 
-       	int i;
+	int i;
 	int size = sizeof(formatters) / sizeof(formatters[0]);
 
 	for (i = 0; i <= size; i++)

@@ -43,7 +43,6 @@ int _printf(const char *fmt, ...)
 			len += _putchar(fmt[i]);
 
 	}
-	_putchar('\n');
 	_putchar(-1);
 	va_end(ap);
 

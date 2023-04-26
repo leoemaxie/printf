@@ -49,7 +49,7 @@ int count_digits(int n);
 int print_dec(va_list ap, flag_t *f);
 int print_int(va_list ap, flag_t *f);
 void print_number(int n);
-int print_unsigned(va_list ap, flag_t *f);
+int print_uint(va_list ap, flag_t *f);
 
 /** print_chars **/
 int print_char(va_list ap, flag_t *f);
