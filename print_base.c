@@ -28,7 +28,7 @@ int print_oct(va_list ap, flag_t *f)
 }
 
 /**
- * print_HEX - prints a number as an hexadecimal (base 16).
+ * print_hex - prints a number as an hexadecimal (base 16).
  *
  * @ap: The number to print.
  * @f: The flag modifier.
