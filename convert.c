@@ -48,7 +48,7 @@ int handle_malloc(char *s)
 	int count = 0;
 
 	if (s == NULL)
-		return (0);
+		return (_puts("(nil)"));
 
 	count += _puts(s);
 	free(s);
