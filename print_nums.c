@@ -35,11 +35,12 @@ void print_number(int n)
 int count_digits(int n)
 {
 	int count = 0;
+	unsigned int num = (n < 0) ? -n : n;
 
-	while (n)
+	while (num)
 	{
 		count++;
-		n /= 10;
+		num /= 10;
 	}
 
 	return (count);

@@ -11,7 +11,7 @@
 int print_addr(va_list ap, flag_t *f)
 {
 	int count = 0;
-	unsigned int p = va_arg(ap, unsigned long int);
+	unsigned long int p = va_arg(ap, unsigned long int);
 	char *s;
 
 	if (!p)
