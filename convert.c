@@ -15,14 +15,13 @@ char *convert(unsigned long int n, int base, int alpha)
 	char s[50];
 	char *cpy;
 
-	while (n)
-	{
+	do {
 		if (n % base > 9)
 			s[i++] = n % base + alpha;
 		else
 			s[i++] = n % base + 48;
 		n /= base;
-	}
+	} while (n);
 
 	cpy = malloc(i);
 
