@@ -17,21 +17,20 @@ int (*get_fmt_print(char c))(va_list, flag_t *)
 		{print_char, 'c'},
 		{print_dec, 'd'},
 		{print_hex, 'x'},
-		{print_hex_upper, 'X'},
+		{print_HEX, 'X'},
 		{print_int, 'i'},
 		{print_oct, 'o'},
 		{print_rev, 'r'},
 		{print_rot13, 'R'},
 		{print_str, 's'},
 		{print_Str, 'S'},
-		{print_addr, 'p'},
 		{print_uint, 'u'}
 	};
 
 	int i;
 	int size = sizeof(formatters) / sizeof(formatters[0]);
 
-	for (i = 0; i <= size; i++)
+	for (i = 0; i < size; i++)
 		if (c == formatters[i].specifier)
 			return (formatters[i].print);
 

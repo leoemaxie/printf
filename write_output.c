@@ -18,11 +18,9 @@ int _putchar(int c)
 	{
 		write(1, &buffer, i);
 		i = 0;
-	} else
-	{
-		buffer[i] = c;
-		i++;
 	}
+	if (c != -1)
+		buffer[i++] = c;
 
 	return (1);
 }

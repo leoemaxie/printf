@@ -28,7 +28,7 @@ int print_oct(va_list ap, flag_t *f)
 }
 
 /**
- * print_hex - prints a number as an hexadecimal (base 16).
+ * print_HEX - prints a number as an hexadecimal (base 16).
  *
  * @ap: The number to print.
  * @f: The flag modifier.
@@ -42,14 +42,14 @@ int print_hex(va_list ap, flag_t *f)
 }
 
 /**
- * print_hex_upper - prints a number as an hexadecimal (base 16) in uppercase.
+ * print_HEX - prints a number as an hexadecimal (base 16) in uppercase.
  *
  * @ap: The number to print.
  * @f: The flag modifier.
  *
  * Return: The number of digits printed.
  */
-int print_hex_upper(va_list ap, flag_t *f)
+int print_HEX(va_list ap, flag_t *f)
 {
 	(void)f;
 	return (handle_malloc(convert(va_arg(ap, unsigned int), 16, 55)));

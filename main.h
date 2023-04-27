@@ -41,7 +41,7 @@ typedef struct format
 /** print_base **/
 int print_bin(va_list ap, flag_t *f);
 int print_hex(va_list ap, flag_t *f);
-int print_hex_upper(va_list ap, flag_t *f);
+int print_HEX(va_list ap, flag_t *f);
 int print_oct(va_list ap, flag_t *f);
 
 /** print_nums **/
